@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap 5 Tooltip and Popover Example</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container mt-5 pt-5">
+            <button
+                id="tooltipButton"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Everyone should love Dandelions!"
+            >
+                Hover or Click me for Tooltip
+            </button>
+            <button
+                id="popoverButton"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-toggle="popover"
+                title="Popover title"
+                data-bs-content="And here's some amazing content. It's very engaging. Right?"
+            >
+                Click me for Popover
+            </button>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Initialize tooltips
+                var tooltipTriggerEl = document.getElementById("tooltipButton");
+                var tooltip = new bootstrap.Tooltip(tooltipTriggerEl);
+                // Show tooltip
+                tooltip.show();
+
+                // Initialize popovers
+                var popoverTriggerEl = document.getElementById("popoverButton");
+                var popover = new bootstrap.Popover(popoverTriggerEl);
+                // Show popover
+                popover.show();
+            });
+        </script>
+    </body>
+</html>

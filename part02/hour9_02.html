@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Styling Forms</title>
+        <!-- Bootstrap -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and    media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via    file:// -->
+    </head>
+    <body>
+        <div class="container">
+            <form
+                action="#"
+                class="d-flex flex-row align-items-center flex-wrap"
+            >
+                <div class="mb-3">
+                    <label for="email" class="visually-hidden"
+                        >Email Address</label
+                    >
+                    <div>
+                        <input
+                            type="email"
+                            required
+                            id="email"
+                            placeholder="Email Address"
+                            class="form-control"
+                        />
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="visually-hidden"
+                        >Password</label
+                    >
+                    <div>
+                        <input
+                            type="password"
+                            required
+                            id="password"
+                            placeholder="Password"
+                            class="form-control"
+                        />
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <label> <input type="checkbox" /> Remember me </label>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">
+                    Login
+                </button>
+            </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>

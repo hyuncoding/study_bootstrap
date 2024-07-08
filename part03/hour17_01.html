@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap 5 Navbar Example</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img
+                        src="../images/daisy.jpg"
+                        alt="Dandylion"
+                        id="dandylionLogo"
+                        class="img-fluid"
+                        style="height: 50px"
+                    />
+                    Dandylions
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsedNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsedNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Support</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                href="#"
+                                class="nav-link dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                role="button"
+                                aria-expanded="false"
+                            >
+                                About <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" class="dropdown-item"
+                                        >Articles</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item"
+                                        >Related Sites</a
+                                    >
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        We love <a href="" class="navbar-link">Weeds</a>!
+                    </span>
+                    <form class="d-flex ms-auto" role="search">
+                        <input
+                            type="text"
+                            class="form-control me-2"
+                            placeholder="Search"
+                        />
+                    </form>
+                    <button type="button" class="btn btn-secondary ms-2">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-5 pt-5">
+            <div class="row">
+                <article id="mainarticle" class="col-lg-5 col-md-6 col-12">
+                    <h3>What is a Dandelion?</h3>
+                    <p>
+                        <span class="pronounce"
+                            ><strong><em>Taraxacum</em></strong>
+                            <em>/t'rækskm/</em></span
+                        >
+                        is a large genus of flowering plants in the family
+                        Asteraceae. They are native to Eurasia and North and
+                        South America, and two species, T. officinale and T.
+                        erythrospermum, are found as weeds worldwide. Both
+                        species are edible in their entirety. The common name
+                        <span class="pronounce"
+                            ><strong>dandelion</strong>
+                            <em>/'dændla.n/</em></span
+                        >
+                        (dan-di-ly-n, from French dent-de-lion, meaning "lion's
+                        tooth") is given to members of the genus, and like other
+                        members of the Asteraceae family, they have very small
+                        flowers collected together into a composite flower head.
+                        Each single flower in a head is called a floret. Many
+                        <em>Taraxacum</em> species produce seeds asexually by
+                        apomixis, where the seeds are produced without
+                        pollination, resulting in offspring that are genetically
+                        identical to the parent plant.
+                    </p>
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        data-bs-trigger="hover"
+                        title="Everyone should love Dandelions!"
+                    >
+                        Click if you love Dandelions
+                    </button>
+                </article>
+                <aside id="links" class="col-md-3 col-12">
+                    <h3>Learn More About Dandelions</h3>
+                    <ul>
+                        <li><a href="#">Do Dandelions Burn in Colors?</a></li>
+                        <li>
+                            <a href="#">Top 5 Things To Do With Dandelion</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                >How to Grow and Harvest Dandelion Greens</a
+                            >
+                        </li>
+                        <li><a href="#">Dandelion Honey Recipe</a></li>
+                        <li>
+                            <a href="#"
+                                >Get Rid of Dandelions the Smart Way&mdash;Eat
+                                Them!</a
+                            >
+                        </li>
+                    </ul>
+                </aside>
+                <aside id="sidebar" class="col-lg-3 col-md-3 col-12">
+                    <p>
+                        <img
+                            src="../images/daisy.jpg"
+                            class="img-fluid"
+                            alt=""
+                        />
+                    </p>
+                    <p>
+                        <img
+                            src="../images/daisy.jpg"
+                            class="img-fluid"
+                            alt=""
+                        />
+                    </p>
+                </aside>
+                <footer class="col-12">
+                    <p>
+                        Text from
+                        <a href="http://en.wikipedia.org/wiki/Dandelion">
+                            Wikipedia
+                        </a>
+                    </p>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var tooltipTriggerList = [].slice.call(
+                    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                );
+                var tooltipList = tooltipTriggerList.map(function (
+                    tooltipTriggerEl
+                ) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+            });
+        </script>
+    </body>
+</html>

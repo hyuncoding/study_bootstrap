@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Styling Forms</title>
+        <!-- Bootstrap -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and    media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via    file:// -->
+        <style>
+            button:disabled,
+            input:disabled,
+            *:disabled {
+                cursor: not-allowed;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form action="#" class="mb-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="one" /> Option one
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="two" /> Option two
+                    </label>
+                </div>
+                <div class="checkbox disabled">
+                    <label>
+                        <input type="checkbox" value="three" disabled /> Option
+                        three - disabled
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="r-one" /> First radio button
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="r-two" /> Second radio
+                    </label>
+                </div>
+                <div class="radio disabled">
+                    <label>
+                        <input type="radio" value="r-three" disabled /> Third
+                        radio - disabled
+                    </label>
+                </div>
+                <select id="dropdown" class="form-control">
+                    <option>pick one</option>
+                    <optgroup>
+                        <option>one</option>
+                        <option>two</option>
+                    </optgroup>
+                    <option>three</option>
+                </select>
+            </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>
