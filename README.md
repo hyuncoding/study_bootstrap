@@ -369,3 +369,108 @@
 -   `data-bs-touch="false"`로 작성하면 모바일 화면 등 터치로 이동하는 걸 방지할 수 있다.
 
 -   참고로, **배너 안에 마우스를 hover하고 있을 경우 자동슬라이드는 방지된다.**
+
+### Bootstrap Customizer
+
+-   Bootstrap에서 제공하는 css 파일을 직접 customize할 수 있다.
+-   이때 직접 파일을 수정할 수도 있지만, 아래 사이트의 generator를 활용하여 필요한 css만 넣을 수도 있다.
+
+<a href="http://getbootstrap.com/customize/">링크</a>
+
+-   **하지만, 이 부분은 Bootstrap 5에서는 제거되었다.**
+
+-   따라서 Bootstrap 5부터는, `sass`를 활용하여 customize할 것을 권장하고 있다.
+-   `sass`에 대해서는 아래에서 다시 다룰 예정이므로 생략한다.
+-   기본적으로 `sass`는 사용자 정의 변수를 설정하여 css 안에서 변수를 활용한다고 보면 된다.
+
+-   결국 기존에 사용하던 `less` 파일도 이제 deprecate 되었다.
+-   Bootstrap 5는 완전히 `Sass(SCSS)`로 작성되었으며, 이는 4버전부터 시작된 변화이다.
+-   이 변화는 `Sass`가 더 많은 기능과 유연성을 제공하고, 개발자 커뮤니티에서도 더 널리 사용되기 때문에 이루어졌다.
+
+-   `npm`에서 Bootstrap을 설치하면 `Sass`파일도 포함된다.
+
+### Accessibility
+
+-   색상(색맹/색약 등 고려), 사용 도구(키보드/마우스 모두), 소리(screen reader 사용 가능한지), 복잡도 등을 고려하여야 한다.
+
+-   비디오나 소리 관련 컨텐츠가 있다면, 시각적으로도 접근 가능하도록 대체 텍스트가 있어야 한다.
+-   색상으로만 정보를 전달하려 하면 안 된다.
+-   screen reader로도 문제 없이 동작하도록 설계해야 한다.
+-   `lang` 속성을 통해 언어를 올바르게 설정해야 한다.
+-   링크 등을 제공할 때 "click here"등 모호하게 작성할 경우 screen reader 사용 시 혼란을 야기하므로 지양한다.
+-   최대한 간결하고 깔끔하게 디자인한다.
+-   `aria-*` 속성들로 접근성을 높일 수 있다.
+
+-   참고) `sr-only`는 `visually-hidden`으로 대체되었다.
+
+### Sass
+
+-   css 속성을 변수나 함수로 customize할 수 있다.
+-   변수의 선언은 $를 사용한다. (ex. $yellow: #F0E433;)
+-   변수 문법과 연계하여 사칙연산이 가능하다. 다만, 단위는 동일해야 한다.
+-   nesting 문법을 통해 css코드의 가독성을 높이고 간결하게 작성할 수 있다.
+
+          /* 예를 들어 아래와 같은 css를 두 번째 css처럼 작성할 수 있다. */
+
+          .main h1 {
+              ...;
+          }
+
+          .main {
+              h1 {
+                  ...;
+              }
+          }
+
+-   다만, 두 번 이상의 중첩은 지양하도록 한다.
+-   또한 nesting 문법은 선택자 외에 프로퍼티에도 사용 가능하다.
+
+          .main {
+              font: {
+                  size: 30em;
+                  weight: bolder;
+              }
+          }
+
+-   @extend를 이용하여 중복되는 부분을 손쉽게 상속할 수 있다.
+
+          %mainLogo {
+              중복되는 부분 작성
+          }
+
+          .main {
+              @extend %mainLogo;
+          }
+
+-   @mixin 문법을 통해, 긴 코드를 짧은 단어로 축약할 수 있다. 사용할 때에는 @include를 사용한다.
+
+          @mixin font-style() {
+              font-size: 15px;
+              letter-spacing: -1px;
+          }
+
+          h2 {
+              @include font-style();
+              font-weight: bold;
+          }
+
+-   @mixin에서는 함수처럼 파라미터도 전달받아 활용할 수 있다.
+
+          @mixin font-style($var){
+              font-size: $var;
+              letter-spacing: -1px;
+          }
+
+-   @use를 통해 (기존의 @import) 다른 파일의 내용을 모두 가져올 수 있다.
+
+          @use '파일경로';
+
+-   이때 변수나 @mixin 등의 문법들도 한꺼번에 가져와 사용할 수 있다.
+-   다른 파일에서 불러온 변수나 함수는 사용할 때 앞에 "파일이름."을 붙여주는 것이 좋다.
+
+### scss 내장 함수
+
+-   `percentage(숫자)`: 숫자를 퍼센트값으로 변경해준다. 숫자 자리에는 연산식도 가능하다.
+-   `round(변경할 값)`: 소수점 이하에서 반올림한다.
+-   `type-of(값)`: 값의 자료형을 반환한다.
+-   `unit(연산식)`: 연산식에서의 데이터 단위를 알려준다. (ex. unit(100px _ 5em) = "px _ em")
